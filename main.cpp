@@ -2,7 +2,7 @@
 #pragma comment(linker,"/opt:nowin98")
 #include<windows.h>
 
-TCHAR szClassName[]=TEXT("Window");
+TCHAR szClassName[]=TEXT("GetScreenRGB");
 
 LRESULT CALLBACK WndProc(HWND hWnd,UINT msg,WPARAM wParam,LPARAM lParam)
 {
@@ -11,7 +11,7 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT msg,WPARAM wParam,LPARAM lParam)
 	{
 	case WM_CREATE:
 		hEdit=CreateWindow(TEXT("EDIT"),0,WS_CHILD|WS_VISIBLE|ES_READONLY|ES_AUTOHSCROLL,10,10,256,32,hWnd,0,((LPCREATESTRUCT)lParam)->hInstance,0);
-		CreateWindow(TEXT("STATIC"),TEXT("‚±‚ÌƒEƒBƒ“ƒhƒE‚ªƒAƒNƒeƒBƒu‚Èó‘Ô‚ÅA‰½‚©ƒL[‚ð‰Ÿ‚·‚ÆƒNƒŠƒbƒvƒ{[ƒh‚ÉRGBî•ñ‚ðƒRƒs[‚µ‚Ü‚·B"),WS_CHILD|WS_VISIBLE,10,50,256,64,hWnd,0,((LPCREATESTRUCT)lParam)->hInstance,0);
+		CreateWindow(TEXT("STATIC"),TEXT("ã“ã®ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ãŒã‚¢ã‚¯ãƒ†ã‚£ãƒ–ãªçŠ¶æ…‹ã§ã€ä½•ã‹ã‚­ãƒ¼ã‚’æŠ¼ã™ã¨ã‚¯ãƒªãƒƒãƒ—ãƒœãƒ¼ãƒ‰ã«RGBæƒ…å ±ã‚’ã‚³ãƒ”ãƒ¼ã—ã¾ã™ã€‚"),WS_CHILD|WS_VISIBLE,10,50,256,64,hWnd,0,((LPCREATESTRUCT)lParam)->hInstance,0);
 		SetTimer(hWnd,0x1234,10,0);
 		break;
 	case WM_TIMER:
@@ -60,7 +60,7 @@ EXTERN_C void __cdecl WinMainCRTStartup()
 	RegisterClass(&wndclass);
 	HWND hWnd=CreateWindow(
 			szClassName,
-			TEXT("Window"),
+			TEXT("GetScreenRGB"),
 			WS_OVERLAPPEDWINDOW,
 			CW_USEDEFAULT,
 			0,
