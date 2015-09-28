@@ -1,6 +1,6 @@
 ﻿#define UNICODE
 #pragma comment(linker,"/opt:nowin98")
-#include<windows.h>
+#include <windows.h>
 
 TCHAR szClassName[]=TEXT("GetScreenRGB");
 
