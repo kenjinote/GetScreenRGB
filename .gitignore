@@ -34,3 +34,10 @@ Icon
 # Files that might appear on external disk
 .Spotlight-V100
 .Trashes
+/GetScreenRGB.VC.db
+/GetScreenRGB.VC.VC.opendb
+/Release/GetScreenRGB.tlog
+/Release/GetScreenRGB.log
+/Release/GetScreenRGB.pdb
+/Release/main.obj
+/Release/vc140.pdb

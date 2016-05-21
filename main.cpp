@@ -40,46 +40,41 @@ LRESULT CALLBACK WndProc(HWND hWnd,UINT msg,WPARAM wParam,LPARAM lParam)
 	return 0;
 }
 
-EXTERN_C void __cdecl WinMainCRTStartup()
+int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPreInst, LPSTR pCmdLine, int nCmdShow)
 {
 	MSG msg;
-	HINSTANCE hInstance=GetModuleHandle(0);
-	WNDCLASS wndclass={
-		CS_HREDRAW|CS_VREDRAW,
+	WNDCLASS wndclass = {
+		CS_HREDRAW | CS_VREDRAW,
 		WndProc,
 		0,
 		0,
 		hInstance,
 		0,
 		LoadCursor(0,IDC_ARROW),
-		(HBRUSH)(COLOR_WINDOW+1),
+		(HBRUSH)(COLOR_WINDOW + 1),
 		0,
 		szClassName
 	};
 	RegisterClass(&wndclass);
-	HWND hWnd=CreateWindow(
-			szClassName,
-			TEXT("GetScreenRGB"),
-			WS_OVERLAPPEDWINDOW,
-			CW_USEDEFAULT,
-			0,
-			CW_USEDEFAULT,
-			0,
-			0,
-			0,
-			hInstance,
-			0
-		);
-	ShowWindow(hWnd,SW_SHOWDEFAULT);
+	HWND hWnd = CreateWindow(
+		szClassName,
+		TEXT("GetScreenRGB"),
+		WS_OVERLAPPEDWINDOW,
+		CW_USEDEFAULT,
+		0,
+		CW_USEDEFAULT,
+		0,
+		0,
+		0,
+		hInstance,
+		0
+	);
+	ShowWindow(hWnd, SW_SHOWDEFAULT);
 	UpdateWindow(hWnd);
-	while(GetMessage(&msg,0,0,0))
+	while (GetMessage(&msg, 0, 0, 0))
 	{
 		TranslateMessage(&msg);
 		DispatchMessage(&msg);
 	}
-	ExitProcess(msg.wParam);
+	return (int)msg.wParam;
 }
-
-#if _DEBUG
-void main(){}
-#endif
